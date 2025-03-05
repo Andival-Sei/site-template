@@ -25,6 +25,3 @@ document.querySelector('#app').innerHTML = `
 
 setupCounter(document.querySelector('#counter'))
 
-const img = document.createElement('img');
-img.src = headerImage;
-document.body.appendChild(img);

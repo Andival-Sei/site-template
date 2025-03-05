@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import htmlMinify from 'vite-plugin-html-minify';
 
 export default defineConfig({
   build: {
@@ -19,29 +20,45 @@ export default defineConfig({
       }
     }
   },
-  plugins: [
+	plugins: [
+		// Минификация HTML
+    htmlMinify({
+      minify: true,
+      removeComments: true,
+      collapseWhitespace: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      sortClassName: true,
+      useShortDoctype: true,
+      minifyCSS: true,
+      keepClosingSlash: true
+		}),
+		
     // Копирование статических файлов
     viteStaticCopy({
       targets: [
-        {
-          src: 'src/**/*.html',
-          dest: './'
-        },
+        // {
+        //   src: 'src/**/*.html',
+        //   dest: './'
+        // },
         {
           src: 'src/fonts/**/*',
           dest: './fonts/'
-        },
-        {
-          // Просто копирование изображений без оптимизации
-          src: 'src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}',
-          dest: './images/'
-        },
-        {
-          // Копирование видео файлов
-          src: 'src/videos/**/*.{mp4,webm,ogg}',
-          dest: './videos/'
         }
-      ]
+        // {
+        //   // Просто копирование изображений без оптимизации
+        //   src: 'src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}',
+        //   dest: './images/'
+        // },
+        // {
+        //   // Копирование видео файлов
+        //   src: 'src/videos/**/*.{mp4,webm,ogg}',
+        //   dest: './videos/'
+        // }
+      ],
+      // Добавим эту опцию для игнорирования ошибок
+      silent: true
     })
   ],
   publicDir: 'public',

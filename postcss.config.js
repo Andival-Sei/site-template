@@ -1,5 +1,16 @@
-module.exports = {
+export default {
   plugins: {
-    autoprefixer: {}
+    'autoprefixer': {},
+    'postcss-combine-media-query': {},
+    'cssnano': {
+      preset: [
+        'default',
+        {
+          discardComments: {
+            removeAll: true,
+          },
+        }
+      ]
+    }
   }
 }
