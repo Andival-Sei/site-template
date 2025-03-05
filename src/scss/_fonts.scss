@@ -1,0 +1,19 @@
+// Объявления шрифтов
+@font-face {
+  font-family: 'MyFont';
+  src:
+    url('../fonts/myfont.woff2') format('woff2'),
+    url('../fonts/myfont.woff') format('woff');
+  font-display: swap; // Улучшает производительность
+  font-weight: normal;
+}
+
+// Можно добавить другие варианты шрифта
+@font-face {
+  font-family: 'MyFont';
+  src:
+    url('../fonts/myfont-bold.woff2') format('woff2'),
+    url('../fonts/myfont-bold.woff') format('woff');
+  font-display: swap;
+  font-weight: bold;
+}
