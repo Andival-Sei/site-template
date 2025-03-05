@@ -38,24 +38,24 @@ export default defineConfig({
     // Копирование статических файлов
     viteStaticCopy({
       targets: [
-        // {
-        //   src: 'src/**/*.html',
-        //   dest: './'
-        // },
+        {
+          src: 'src/**/*.html',
+          dest: './'
+        },
         {
           src: 'src/fonts/**/*',
           dest: './fonts/'
+        },
+        {
+          // Просто копирование изображений без оптимизации
+          src: 'src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}',
+          dest: './images/'
+        },
+        {
+          // Копирование видео файлов
+          src: 'src/videos/**/*.{mp4,webm,ogg}',
+          dest: './videos/'
         }
-        // {
-        //   // Просто копирование изображений без оптимизации
-        //   src: 'src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}',
-        //   dest: './images/'
-        // },
-        // {
-        //   // Копирование видео файлов
-        //   src: 'src/videos/**/*.{mp4,webm,ogg}',
-        //   dest: './videos/'
-        // }
       ],
       // Добавим эту опцию для игнорирования ошибок
       silent: true
