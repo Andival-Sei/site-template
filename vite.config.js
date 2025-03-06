@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import htmlMinify from 'vite-plugin-html-minify';
+import htmlInject from 'vite-plugin-html-inject';
 
 export default defineConfig({
   build: {
@@ -21,6 +22,8 @@ export default defineConfig({
     }
   },
 	plugins: [
+
+		htmlInject(),
 		// Минификация HTML
     htmlMinify({
       minify: true,
